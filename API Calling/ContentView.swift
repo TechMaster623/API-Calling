@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var catFacts = [String]()
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -22,5 +23,14 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct CatFacts: Identifiable, Codable {
+    var id = UUID()
+    var facts: [String]
+    
+    enum CodingKeys: String, CodingKey {
+        case facts = "data"
     }
 }
